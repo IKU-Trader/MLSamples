@@ -8,7 +8,7 @@ Created on Wed Mar 29 21:30:16 2023
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '../Utilities'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '../SequentialTechnicalAnalysis'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../TechnicalAnalysis'))
 
 
 import pandas as pd
