@@ -27,27 +27,6 @@ import torch.optim as optim
 import gc
 
 
-def TAParams():
-    trend_params = {ta.MA_KEYS:['SMA5', 'SMA20', 'SMA60'], ta.THRESHOLD:0.05}
-    patterns = {
-                    ta.SOURCE: 'MA_TREND',
-                    ta.PATTERNS:[
-                            [[ta.NO_TREND, ta.UPPER_TREND], 1, 0],
-                            [[ta.UPPER_SUB_TREND, ta.UPPER_TREND], 1, 0],
-                            [[ta.NO_TREND, ta.LOWER_TREND], 2, 0],
-                            [[ta.LOWER_SUB_TREND, ta.LOWER_TREND], 2, 0]
-                            ]
-                }
-
-    params = [
-                [ta.SMA, {ta.WINDOW: 5}, 'SMA5'],
-                [ta.SMA, {ta.WINDOW: 20}, 'SMA20'],
-                [ta.SMA, {ta.WINDOW: 60}, 'SMA60'],
-                [ta.MA_TREND_BAND, trend_params, 'MA_TREND'],
-                [ta.PATTERN_MATCH, patterns, 'SIGNAL']
-            ]
-    return params
-
 def displayChart(data: ResampleDataBuffer):
     t0 = TimeUtils.pyTime(2023, 1, 9, 12, 30, 0, TimeUtils.TIMEZONE_TOKYO)
     t1 = TimeUtils.pyTime(2023, 1, 10, 5, 0, 0, TimeUtils.TIMEZONE_TOKYO)
